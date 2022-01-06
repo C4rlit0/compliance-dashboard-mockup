@@ -1,0 +1,17 @@
+@font-face {
+  font-family: "Pernod Ricard";
+  src: url("../fonts/PernodRicard_Regular.otf");
+}
+
+@font-face {
+  font-family: "Pernod Ricard Bold";
+  src: url("../fonts/PernodRicard_Bold.otf");
+}
+
+h1 {
+  font-family: "Pernod Ricard Bold";
+}
+
+h2 {
+  font-family: "Pernod Ricard";
+}
