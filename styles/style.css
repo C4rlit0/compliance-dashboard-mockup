@@ -30,8 +30,20 @@ ul {
 }
 
 body {
-  background-color: #f2f3f7;
+  /*background-color: #f2f3f7;*/
   /* background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8' viewBox='0 0 8 8'%3E%3Cg fill='%23d4d4f8' fill-opacity='0.4'%3E%3Cpath fill-rule='evenodd' d='M0 0h4v4H0V0zm4 4h4v4H4V4z'/%3E%3C/g%3E%3C/svg%3E"); */
+
+  background: #f2f3f7; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #b7b8b9,
+    #f2f3f7
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #b7b8b9,
+    #f2f3f7
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 .progress-bar {
@@ -479,4 +491,10 @@ body {
 .blue span::after {
   border-right-color: #1e5799;
   border-top-color: #1e5799;
+}
+
+.profile-picture {
+  margin-left: 20px;
+  margin-top: 45px;
+  border-radius: 50%;
 }
