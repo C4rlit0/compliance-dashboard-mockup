@@ -40,8 +40,12 @@ body {
 }
 
 @-webkit-keyframes bar {
-	0% {width: 0; }
-  100% {visibility: visible;}
+  0% {
+    width: 0;
+  }
+  100% {
+    visibility: visible;
+  }
 }
 
 .card {
@@ -61,7 +65,7 @@ body {
   box-shadow: 0 -2px 4px 2px rgba(0, 0, 0, 0.1);
   width: 200px;
   height: 100px;
-  border-radius: 100px 100px 0 0!important;
+  border-radius: 100px 100px 0 0 !important;
   position: relative;
   overflow: hidden;
 }
@@ -70,73 +74,93 @@ body {
 }
 
 .gauge-center {
-  content: '';
+  content: "";
   color: #fff;
   width: 60%;
   height: 60%;
-  background: #15222E;
-  border-radius: 100px 100px 0 0!important;
+  background: #15222e;
+  border-radius: 100px 100px 0 0 !important;
   position: absolute;
   box-shadow: 0 -13px 15px -10px rgba(0, 0, 0, 0.28);
   right: 21%;
   bottom: 0;
   color: #fff;
-  z-index:10;
+  z-index: 10;
 }
 
-.gauge-center .label, .gauge-center .number {display:block; width: 100%; text-align: center; border:0!important;}
-.gauge-center .label {font-size:0.75em; opacity:0.6; margin:1.1em 0 0.3em 0;}
-.gauge-center .number {font-size:1.2em;}
+.gauge-center .label,
+.gauge-center .number {
+  display: block;
+  width: 100%;
+  text-align: center;
+  border: 0 !important;
+}
+.gauge-center .label {
+  font-size: 0.75em;
+  opacity: 0.6;
+  margin: 1.1em 0 0.3em 0;
+}
+.gauge-center .number {
+  font-size: 1.2em;
+}
 
 .needle {
   width: 80px;
   height: 7px;
-  background: #15222E;
-  border-bottom-left-radius: 100%!important;
-  border-bottom-right-radius: 5px!important;
-  border-top-left-radius: 100%!important;
-  border-top-right-radius: 5px!important;
+  background: #15222e;
+  border-bottom-left-radius: 100% !important;
+  border-bottom-right-radius: 5px !important;
+  border-top-left-radius: 100% !important;
+  border-top-right-radius: 5px !important;
   position: absolute;
   bottom: -2px;
   left: 20px;
   transform-origin: 100% 4px;
   transform: rotate(0deg);
   box-shadow: 0 2px 2px 1px rgba(0, 0, 0, 0.38);
-  display:none;
-  z-index:9;
+  display: none;
+  z-index: 9;
 }
 
-.four.rischio3 .needle {animation: fourspeed3 2s 1 both; animation-delay: 0.1s; display:block;}
+.four.rischio3 .needle {
+  animation: fourspeed3 2s 1 both;
+  animation-delay: 0.1s;
+  display: block;
+}
 
-.slice-colors {height:100%;}
+.slice-colors {
+  height: 100%;
+}
 
 .slice-colors .st {
   position: absolute;
   bottom: 0;
   width: 0;
   height: 0;
-  border: 50px solid transparent;  
+  border: 50px solid transparent;
 }
-
 
 .four .slice-colors .st.slice-item:nth-child(2) {
   border-top: 50px #f1c40f solid;
   border-right: 50px #f1c40f solid;
-  background-color:#18bc9c;
+  background-color: #18bc9c;
 }
 
 .four .slice-colors .st.slice-item:nth-child(4) {
-  left:50%;
+  left: 50%;
   border-bottom: 50px #e74c3c solid;
   border-right: 50px #e74c3c solid;
-  background-color:#f39c12;
+  background-color: #f39c12;
 }
 
 @-webkit-keyframes fourspeed3 {
-	0% {transform: rotate(0);}
-  100% {transform: rotate(115deg);}
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(115deg);
+  }
 }
-
 
 .headline {
   background: #ffffff;
@@ -208,7 +232,7 @@ body {
   height: 200px;
   background-color: #fff;
   background: linear-gradient(#f8f8f8, #fff);
-  box-shadow: 0 8px 16px -8px rgba(0,0,0,0.4);
+  box-shadow: 0 8px 16px -8px rgba(0, 0, 0, 0.4);
   border-radius: 6px;
   overflow: hidden;
   position: relative;
@@ -226,12 +250,11 @@ body {
   position: absolute;
   width: 150px;
   height: 100%;
-  background: linear-gradient(#223F75, #123F75);
+  background: linear-gradient(#223f75, #123f75);
   transition: width 0.4s;
   overflow: hidden;
   z-index: 2;
 }
-
 
 .md-card:hover .additional {
   width: 100%;
@@ -252,7 +275,7 @@ body {
   top: 10%;
   right: -2px;
   height: 80%;
-  border-left: 2px solid rgba(0,0,0,0.025);
+  border-left: 2px solid rgba(0, 0, 0, 0.025);
 }
 
 .md-card .additional .user-card .level,
@@ -262,7 +285,7 @@ body {
   text-transform: uppercase;
   font-size: 0.75em;
   font-weight: bold;
-  background: rgba(0,0,0,0.15);
+  background: rgba(0, 0, 0, 0.15);
   padding: 0.125rem 0.75rem;
   border-radius: 100px;
   white-space: nowrap;
@@ -355,4 +378,105 @@ body {
   bottom: 1rem;
   right: 1rem;
   font-size: 0.75em;
+}
+
+/* Ribbon */
+
+/* common */
+.ribbon {
+  width: 150px;
+  height: 150px;
+  overflow: hidden;
+  position: absolute;
+}
+.ribbon::before,
+.ribbon::after {
+  position: absolute;
+  z-index: -1;
+  content: ”;
+  display: block;
+  border: 5px solid #2980b9;
+}
+.ribbon span {
+  position: absolute;
+  display: block;
+  width: 225px;
+  padding: 15px 0;
+  background-color: #3498db;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  color: #fff;
+  font: 700 18px/1 ‘Lato’, sans-serif;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.ribbon-top-right {
+  top: -10px;
+  right: -10px;
+}
+.ribbon-top-right::before,
+.ribbon-top-right::after {
+  border-top-color: transparent;
+  border-right-color: transparent;
+}
+.ribbon-top-right::before {
+  top: 0;
+  left: 0;
+}
+.ribbon-top-right::after {
+  bottom: 0;
+  right: 0;
+}
+.ribbon-top-right span {
+  left: -25px;
+  top: 30px;
+  transform: rotate(45deg);
+}
+
+.ribbon span::before {
+  content: "";
+  position: absolute;
+  left: 0px;
+  top: 100%;
+  z-index: -1;
+  border-left: 3px solid #79a70a;
+  border-right: 3px solid transparent;
+  border-bottom: 3px solid transparent;
+  border-top: 3px solid #79a70a;
+}
+.ribbon span::after {
+  content: "";
+  position: absolute;
+  right: 0%;
+  top: 100%;
+  z-index: -1;
+  border-right: 3px solid #79a70a;
+  border-left: 3px solid transparent;
+  border-bottom: 3px solid transparent;
+  border-top: 3px solid #79a70a;
+}
+
+.red span {
+  background: linear-gradient(#f70505 0%, #8f0808 100%);
+}
+.red span::before {
+  border-left-color: #8f0808;
+  border-top-color: #8f0808;
+}
+.red span::after {
+  border-right-color: #8f0808;
+  border-top-color: #8f0808;
+}
+
+.blue span {
+  background: linear-gradient(#2989d8 0%, #1e5799 100%);
+}
+.blue span::before {
+  border-left-color: #1e5799;
+  border-top-color: #1e5799;
+}
+.blue span::after {
+  border-right-color: #1e5799;
+  border-top-color: #1e5799;
 }
