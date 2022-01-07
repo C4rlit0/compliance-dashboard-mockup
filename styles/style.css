@@ -34,62 +34,19 @@ body {
   /* background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8' viewBox='0 0 8 8'%3E%3Cg fill='%23d4d4f8' fill-opacity='0.4'%3E%3Cpath fill-rule='evenodd' d='M0 0h4v4H0V0zm4 4h4v4H4V4z'/%3E%3C/g%3E%3C/svg%3E"); */
 }
 
-@property --p{
-  syntax: '<number>';
-  inherits: true;
-  initial-value: 0;
+.progress-bar {
+  animation: bar 2s 1 both;
+  animation-delay: 0.1s;
 }
 
-.pie {
-  --p:20;
-  --b:22px;
-  --c:darkred;
-  --w:150px;
-  
-  width:var(--w);
-  aspect-ratio:1;
-  position:relative;
-  display:inline-grid;
-  margin:5px;
-  place-content:center;
-  font-size:25px;
-  font-weight:bold;
-  font-family:sans-serif;
-}
-.pie:before,
-.pie:after {
-  content:"";
-  position:absolute;
-  border-radius:50%;
-}
-.pie:before {
-  inset:0;
-  background:
-    radial-gradient(farthest-side,var(--c) 98%,#0000) top/var(--b) var(--b) no-repeat,
-    conic-gradient(var(--c) calc(var(--p)*1%),#0000 0);
-  -webkit-mask:radial-gradient(farthest-side,#0000 calc(99% - var(--b)),#000 calc(100% - var(--b)));
-          mask:radial-gradient(farthest-side,#0000 calc(99% - var(--b)),#000 calc(100% - var(--b)));
-}
-.pie:after {
-  inset:calc(50% - var(--b)/2);
-  background:var(--c);
-  transform:rotate(calc(var(--p)*3.6deg)) translateY(calc(50% - var(--w)/2));
-}
-.animate {
-  animation:p 1s .5s both;
-}
-.no-round:before {
-  background-size:0 0,auto;
-}
-.no-round:after {
-  content:none;
-}
-@keyframes p {
-  from{--p:0}
+@-webkit-keyframes bar {
+	0% {width: 0; }
+  100% {visibility: visible;}
 }
 
 .card {
   border-radius: 7px;
+  box-shadow: 2px 5px 20px rgba(0, 0, 0, 0.1) !important;
 }
 
 .gauge-wrapper {
@@ -101,7 +58,7 @@ body {
 
 .gauge {
   background: #e7e7e7;
-  box-shadow: 0 -3px 6px 2px rgba(0, 0, 0, 0.50);
+  box-shadow: 0 -2px 4px 2px rgba(0, 0, 0, 0.1);
   width: 200px;
   height: 100px;
   border-radius: 100px 100px 0 0!important;
@@ -149,10 +106,7 @@ body {
   z-index:9;
 }
 
-.four.rischio1 .needle {animation: fourspeed1 2s 1 both; animation-delay: 1s; display:block;}
-.four.rischio2 .needle {animation: fourspeed2 2s 1 both; animation-delay: 1s; display:block;}
-.four.rischio3 .needle {animation: fourspeed3 2s 1 both; animation-delay: 1s; display:block;}
-.four.rischio4 .needle {animation: fourspeed4 2s 1 both; animation-delay: 1s; display:block;}
+.four.rischio3 .needle {animation: fourspeed3 2s 1 both; animation-delay: 0.1s; display:block;}
 
 .slice-colors {height:100%;}
 
@@ -168,25 +122,14 @@ body {
 .four .slice-colors .st.slice-item:nth-child(2) {
   border-top: 50px #f1c40f solid;
   border-right: 50px #f1c40f solid;
-  background-color:#1eaa59;
+  background-color:#18bc9c;
 }
 
 .four .slice-colors .st.slice-item:nth-child(4) {
   left:50%;
-  border-bottom: 50px #E84C3D solid;
-  border-right: 50px #E84C3D solid;
-  background-color:#e67e22;
-}
-
-
-@-webkit-keyframes fourspeed1 {
-	0% {transform: rotate(0);}
-  100% {transform: rotate(16deg);}
-}
-
-@-webkit-keyframes fourspeed2 {
-	0% {transform: rotate(0);}
-  100% {transform: rotate(65deg);}
+  border-bottom: 50px #e74c3c solid;
+  border-right: 50px #e74c3c solid;
+  background-color:#f39c12;
 }
 
 @-webkit-keyframes fourspeed3 {
@@ -194,15 +137,8 @@ body {
   100% {transform: rotate(115deg);}
 }
 
-@-webkit-keyframes fourspeed4 {
-	0% {transform: rotate(0);}
-  100% {transform: rotate(164deg);}
-}
 
-.c-dashboardInfo {
-  margin-bottom: 15px;
-}
-.c-dashboardInfo .wrap {
+.headline {
   background: #ffffff;
   box-shadow: 2px 10px 20px rgba(0, 0, 0, 0.1);
   border-radius: 7px;
@@ -212,6 +148,23 @@ body {
   padding: 40px 25px 20px;
   height: 100%;
 }
+
+.corner-success {
+  border-top: 0.5rem solid #18bc9c;
+}
+
+.corner-warning {
+  border-top: 0.5rem solid #f39c12;
+}
+
+.corner-danger {
+  border-top: 0.5rem solid #e74c3c;
+}
+
+.corner-info {
+  border-top: 0.5rem solid #0084f4;
+}
+
 .c-dashboardInfo__title,
 .c-dashboardInfo__subInfo {
   color: #6c6c6c;
@@ -226,28 +179,7 @@ body {
   line-height: 64px;
   color: #323c43;
 }
-.c-dashboardInfo .wrap:after {
-  display: block;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 10px;
-  content: "";
-}
 
-.c-dashboardInfo:nth-child(1) .wrap:after {
-  background: linear-gradient(82.59deg, #00c48c 0%, #00a173 100%);
-}
-.c-dashboardInfo:nth-child(2) .wrap:after {
-  background: linear-gradient(81.67deg, #0084f4 0%, #1a4da2 100%);
-}
-.c-dashboardInfo:nth-child(3) .wrap:after {
-  background: linear-gradient(69.83deg, #0084f4 0%, #00c48c 100%);
-}
-.c-dashboardInfo:nth-child(4) .wrap:after {
-  background: linear-gradient(81.67deg, #ff647c 0%, #1f5dc5 100%);
-}
 .c-dashboardInfo__title svg {
   color: #d7d7d7;
   margin-left: 5px;
@@ -261,4 +193,166 @@ body {
   transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   user-select: none;
   flex-shrink: 0;
+}
+
+/* MD Cards */
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.md-card {
+  width: 400px;
+  height: 200px;
+  background-color: #fff;
+  background: linear-gradient(#f8f8f8, #fff);
+  box-shadow: 0 8px 16px -8px rgba(0,0,0,0.4);
+  border-radius: 6px;
+  overflow: hidden;
+  position: relative;
+  /* margin: 1.5rem; */
+}
+
+.md-card h1 {
+  text-align: center;
+  font-size: large;
+  font-weight: normal;
+  margin-top: 20px;
+}
+
+.md-card .additional {
+  position: absolute;
+  width: 150px;
+  height: 100%;
+  background: linear-gradient(#223F75, #123F75);
+  transition: width 0.4s;
+  overflow: hidden;
+  z-index: 2;
+}
+
+
+.md-card:hover .additional {
+  width: 100%;
+  border-radius: 0 5px 5px 0;
+}
+
+.md-card .additional .user-card {
+  width: 150px;
+  height: 100%;
+  position: relative;
+  float: left;
+}
+
+.md-card .additional .user-card::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 10%;
+  right: -2px;
+  height: 80%;
+  border-left: 2px solid rgba(0,0,0,0.025);
+}
+
+.md-card .additional .user-card .level,
+.md-card .additional .user-card .points {
+  top: 15%;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 0.75em;
+  font-weight: bold;
+  background: rgba(0,0,0,0.15);
+  padding: 0.125rem 0.75rem;
+  border-radius: 100px;
+  white-space: nowrap;
+}
+
+.md-card .additional .user-card .points {
+  top: 85%;
+}
+
+.md-card .additional .user-card svg {
+  top: 50%;
+}
+
+.md-card .additional .more-info {
+  width: 250px;
+  float: left;
+  position: absolute;
+  left: 150px;
+  height: 100%;
+}
+
+.md-card .additional .more-info h1 {
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.md-card .additional .coords {
+  margin: 0 1rem;
+  color: #fff;
+  font-size: 0.75rem;
+}
+
+.md-card .additional .coords span + span {
+  float: right;
+}
+
+.md-card .additional .stats {
+  font-size: 0.75rem;
+  display: flex;
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  right: 1rem;
+  top: auto;
+  color: #fff;
+}
+
+.md-card .additional .stats > div {
+  flex: 1;
+  text-align: center;
+}
+
+.md-card .additional .stats i {
+  display: block;
+}
+
+.md-card .additional .stats div.title {
+  font-size: 0.6rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.md-card .additional .stats div.value {
+  font-size: 1rem;
+  font-weight: bold;
+  line-height: 1.5rem;
+}
+
+.md-card .additional .stats div.value.infinity {
+  font-size: 2.5rem;
+}
+
+.md-card .general {
+  width: 250px;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 1;
+  box-sizing: border-box;
+  padding: 1rem;
+  padding-top: 0;
+}
+
+.md-card .general p {
+  font-size: 0.9rem;
+}
+.md-card .general .more {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  font-size: 0.75em;
 }
